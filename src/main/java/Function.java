@@ -3,8 +3,10 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class Function {
     private final Expression expression;
+    private final String function;
 
     public Function(String expr) {
+        this.function = expr;
         this.expression = new ExpressionBuilder(expr).variable("x").build();
     }
 
@@ -15,4 +17,10 @@ public class Function {
             return Double.NaN;
         }
     }
+
+    @Override
+    public String toString() {
+        return this.function;
+    }
+
 }
