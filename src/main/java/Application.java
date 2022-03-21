@@ -1,5 +1,4 @@
-import Integrator.IntegralAnswer;
-import Integrator.TrapezoidIntegrator;
+import Integrator.*;
 import math.Function;
 import math.FunctionStorage;
 import math.Integral;
@@ -12,6 +11,9 @@ public class Application {
 
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static final TrapezoidIntegrator TRAPEZOID_INTEGRATOR = new TrapezoidIntegrator();
+    private static final LeftRectanglesIntegrator LEFT_RECTANGLES_INTEGRATOR = new LeftRectanglesIntegrator();
+    private static final MiddleRectanglesIntegrator MIDDLE_RECTANGLES_INTEGRATOR = new MiddleRectanglesIntegrator();
+    private static final RightRectanglesIntegrator RIGHT_RECTANGLES_INTEGRATOR = new RightRectanglesIntegrator();
 
     public static void main(String[] args) {
         FunctionStorage.writeFunctionsChoice();
@@ -26,9 +28,21 @@ public class Application {
         Integral integral = new Integral(function, a, b);
         double accuracy = readAccuracy();
 
-        IntegralAnswer integralAnswer = TRAPEZOID_INTEGRATOR.integrate(integral, accuracy);
+        IntegralAnswer trapezoidAnswer = TRAPEZOID_INTEGRATOR.integrate(integral, accuracy);
+        System.out.println("Метод левых трапеций");
+        trapezoidAnswer.showAnswer();
 
-        integralAnswer.showAnswer();
+        IntegralAnswer leftRectanglesAnswer = LEFT_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);
+        System.out.println("Метод левых прямоугольников");
+        leftRectanglesAnswer.showAnswer();
+
+        IntegralAnswer middleRectanglesAnswer = MIDDLE_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);
+        System.out.println("Метод средних прямоугольников");
+        middleRectanglesAnswer.showAnswer();
+
+        IntegralAnswer rightRectanglesAnswer = RIGHT_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);
+        System.out.println("Метод правых прямоугольников");
+        rightRectanglesAnswer.showAnswer();
 
     }
 

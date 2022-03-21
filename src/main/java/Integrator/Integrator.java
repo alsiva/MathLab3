@@ -2,12 +2,12 @@ package Integrator;
 
 import math.Integral;
 
-public class RectanglesIntegrator extends AbstractIntegrator {
+public abstract class Integrator {
 
     public IntegralAnswer integrate(Integral integral, Double accuracy) {
-       int n = 4;
-       double prevIntegral, nextIntegral = countIntegral(integral, n);
-       double delta;
+        int n = 4;
+        double prevIntegral, nextIntegral = countIntegral(integral, n);
+        double delta;
 
         do {
             prevIntegral = nextIntegral;
@@ -21,7 +21,6 @@ public class RectanglesIntegrator extends AbstractIntegrator {
 
     }
 
-    private double countIntegral(Integral integral, double n) {
+    abstract double countIntegral(Integral integral, double n);
 
-    }
 }
