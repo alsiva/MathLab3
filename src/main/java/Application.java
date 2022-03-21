@@ -29,7 +29,7 @@ public class Application {
         double accuracy = readAccuracy();
 
         IntegralAnswer trapezoidAnswer = TRAPEZOID_INTEGRATOR.integrate(integral, accuracy);
-        System.out.println("Метод левых трапеций");
+        System.out.println("Метод трапеций");
         trapezoidAnswer.showAnswer();
 
         IntegralAnswer leftRectanglesAnswer = LEFT_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);

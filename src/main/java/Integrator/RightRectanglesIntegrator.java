@@ -12,7 +12,7 @@ public class RightRectanglesIntegrator extends Integrator {
         double value = 0;
 
         for (double i = 1; i <= n; i++) {
-            value += h * integral.function().apply(i * h);
+            value += h * integral.function().apply(a + i * h);
         }
 
         return value;

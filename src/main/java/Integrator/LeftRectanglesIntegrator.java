@@ -9,12 +9,13 @@ public class LeftRectanglesIntegrator extends Integrator {
         double a = integral.getLowerBound();//x0
         double b = integral.getUpperBound();//xn
         double h = Math.abs((b - a) / n);
-        double value = 0;
+
+        double sum = 0;
 
         for (int i = 1; i <= n; i++) {
-            value += h * integral.function().apply((i-1) * h);
+            sum += h * integral.function().apply(a + (i-1) * h);
         }
 
-        return value;
+        return sum;
     }
 }

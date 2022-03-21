@@ -12,7 +12,7 @@ public class MiddleRectanglesIntegrator extends Integrator{
         double value = 0;
 
         for (double i = 1; i <= n; i++) {
-            value += h * integral.function().apply((i - 0.5) * h);
+            value += h * integral.function().apply(a + (i - 0.5) * h);
         }
 
 
