@@ -11,11 +11,15 @@ public class FunctionStorage {
     );
 
     public static void writeFunctionsChoice() {
-        System.out.println("Choose the equation from 1 to " + FUNCTIONS.size());
+        System.out.println("Choose the integral from 1 to " + FUNCTIONS.size());
 
         for (int i = 0; i < FUNCTIONS.size(); i++) {
             System.out.println("[" + (i+1) + "]: " + FUNCTIONS.get(i).toString());
         }
+    }
+
+    public static Function chooseFunction(int index) {
+        return FUNCTIONS.get(index);
     }
 
 }

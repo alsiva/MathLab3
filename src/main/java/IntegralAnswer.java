@@ -19,4 +19,12 @@ public class IntegralAnswer {
     public Integer parts() {
         return this.parts;
     }
+
+    public void showAnswer() {
+        System.out.println("-----------------");
+        System.out.println("Area = " + area);
+        System.out.println("Error = " + error);
+        System.out.println("Parts = " + parts);
+        System.out.println("-----------------");
+    }
 }
