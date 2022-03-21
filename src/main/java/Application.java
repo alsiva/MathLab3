@@ -1,3 +1,9 @@
+import Integrator.IntegralAnswer;
+import Integrator.TrapezoidIntegrator;
+import math.Function;
+import math.FunctionStorage;
+import math.Integral;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -5,7 +11,7 @@ import java.io.InputStreamReader;
 public class Application {
 
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private static final Integrator integrator = new Integrator();
+    private static final TrapezoidIntegrator TRAPEZOID_INTEGRATOR = new TrapezoidIntegrator();
 
     public static void main(String[] args) {
         FunctionStorage.writeFunctionsChoice();
@@ -20,7 +26,7 @@ public class Application {
         Integral integral = new Integral(function, a, b);
         double accuracy = readAccuracy();
 
-        IntegralAnswer integralAnswer = integrator.integrate(integral, accuracy);
+        IntegralAnswer integralAnswer = TRAPEZOID_INTEGRATOR.integrate(integral, accuracy);
 
         integralAnswer.showAnswer();
 

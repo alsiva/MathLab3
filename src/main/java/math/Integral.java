@@ -1,3 +1,5 @@
+package math;
+
 public class Integral {
 
     private final Function function;
@@ -12,14 +14,6 @@ public class Integral {
 
     public Function function() {
         return this.function;
-    }
-
-    public boolean equalBounds() {
-        return this.lowerBound == this.upperBound;
-    }
-
-    public double boundDifference() {
-        return this.upperBound - this.lowerBound;
     }
 
     public double getLowerBound() {

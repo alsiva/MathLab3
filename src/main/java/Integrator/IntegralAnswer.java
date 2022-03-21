@@ -1,3 +1,5 @@
+package Integrator;
+
 public class IntegralAnswer {
     private final Double area, error;
     private final Integer parts;
