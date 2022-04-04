@@ -1,4 +1,4 @@
-package Integrator;
+package integrator;
 
 import math.Integral;
 
@@ -21,4 +21,8 @@ public class TrapezoidIntegrator extends Integrator {
         return (h/2) * (y0 + yn + 2 * sum);
     }
 
+    @Override
+    public String getTitle() {
+        return "Метод трапеций";
+    }
 }

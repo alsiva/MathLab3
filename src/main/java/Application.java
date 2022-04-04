@@ -1,4 +1,4 @@
-import Integrator.*;
+import integrator.*;
 import math.Function;
 import math.FunctionStorage;
 import math.Integral;
@@ -34,22 +34,29 @@ public class Application {
         double b = readDouble("Write b: ");
         Integral integral = new Integral(function, a, b);
         double accuracy = readAccuracy();
+        double preciseAnswer = 0;
 
-        IntegralAnswer trapezoidAnswer = TRAPEZOID_INTEGRATOR.integrate(integral, accuracy);
-        System.out.println("Метод трапеций");
-        trapezoidAnswer.showAnswer();
+        double leftValue = integral.function().apply(b);
+        double rightValue = integral.function().apply(a);
 
-        IntegralAnswer leftRectanglesAnswer = LEFT_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);
-        System.out.println("Метод левых прямоугольников");
-        leftRectanglesAnswer.showAnswer();
+        double sum = leftValue - rightValue;
 
-        IntegralAnswer middleRectanglesAnswer = MIDDLE_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);
-        System.out.println("Метод средних прямоугольников");
-        middleRectanglesAnswer.showAnswer();
+        System.out.println("Точное значение интеграла");
+        System.out.println(sum);
+        //Вычисление интеграла приближёнными методами
 
-        IntegralAnswer rightRectanglesAnswer = RIGHT_RECTANGLES_INTEGRATOR.integrate(integral, accuracy);
-        System.out.println("Метод правых прямоугольников");
-        rightRectanglesAnswer.showAnswer();
+        System.out.println("Вычисление интеграла приближёнными методами");
+        FunctionStorage.writeFunctionsChoice();
+        int index1 = readIndex();
+        Function function1 = FunctionStorage.chooseFunction(index1-1);
+        Integral integral1 = new Integral(function1, a, b);
+
+
+        for (Integrator integrator : INTEGRATORS) {
+            System.out.println(integrator.getTitle());
+            IntegralAnswer answer = integrator.integrate(integral1, accuracy);
+            answer.showAnswer();
+        }
 
     }
 

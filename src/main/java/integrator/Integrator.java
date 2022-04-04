@@ -1,4 +1,4 @@
-package Integrator;
+package integrator;
 
 import math.Integral;
 

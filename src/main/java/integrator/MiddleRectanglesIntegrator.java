@@ -1,8 +1,8 @@
-package Integrator;
+package integrator;
 
 import math.Integral;
 
-public class RightRectanglesIntegrator extends Integrator {
+public class MiddleRectanglesIntegrator extends Integrator{
 
     @Override
     double countIntegral(Integral integral, double n) {
@@ -12,9 +12,15 @@ public class RightRectanglesIntegrator extends Integrator {
         double value = 0;
 
         for (double i = 1; i <= n; i++) {
-            value += h * integral.function().apply(a + i * h);
+            value += h * integral.function().apply(a + (i - 0.5) * h);
         }
 
+
         return value;
+    }
+
+    @Override
+    public String getTitle() {
+        return "Метод средних прямоугольников";
     }
 }

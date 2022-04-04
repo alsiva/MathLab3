@@ -7,6 +7,7 @@ public class FunctionStorage {
 
     private static final List<Function> FUNCTIONS = Arrays.asList(
         new Function("sin(x) / x"),
+        new Function("(x^3)/3"),
         new Function("x^2"),
         new Function("log(abs(x))"),
         new Function("log(x)")

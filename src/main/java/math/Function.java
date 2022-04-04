@@ -20,6 +20,10 @@ public class Function {
         }
     }
 
+    public double derivative(double x, double delta) {
+        return (this.apply(x + delta) - this.apply(x - delta)) / (2 * delta);
+    }
+
     @Override
     public String toString() {
         return this.function;

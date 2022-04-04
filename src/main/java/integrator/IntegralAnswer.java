@@ -1,4 +1,4 @@
-package Integrator;
+package integrator;
 
 public class IntegralAnswer {
     private final Double area;
@@ -11,16 +11,8 @@ public class IntegralAnswer {
         this.error = error;
     }
 
-    public Double area() {
+    public double getArea() {
         return this.area;
-    }
-
-    public Double error() {
-        return this.error;
-    }
-
-    public Integer parts() {
-        return this.parts;
     }
 
     public void showAnswer() {

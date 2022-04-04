@@ -1,4 +1,4 @@
-package Integrator;
+package integrator;
 
 import math.Integral;
 
@@ -17,5 +17,10 @@ public class LeftRectanglesIntegrator extends Integrator {
         }
 
         return sum;
+    }
+
+    @Override
+    public String getTitle() {
+        return "Метод левых прямоугольников";
     }
 }
