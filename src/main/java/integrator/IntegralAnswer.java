@@ -1,12 +1,13 @@
 package Integrator;
 
 public class IntegralAnswer {
-    private final Double area, error;
+    private final Double area;
+    private final Double error;
     private final Integer parts;
 
     public IntegralAnswer(double area, double error, Integer parts) {
-        this.parts = parts;
         this.area = area;
+        this.parts = parts;
         this.error = error;
     }
 

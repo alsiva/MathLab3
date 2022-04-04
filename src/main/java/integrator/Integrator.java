@@ -18,9 +18,10 @@ public abstract class Integrator {
         } while (delta > accuracy);
 
         return new IntegralAnswer(nextIntegral, delta, n);
-
     }
 
     abstract double countIntegral(Integral integral, double n);
+
+    public abstract String getTitle();
 
 }

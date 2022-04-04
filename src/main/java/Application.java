@@ -6,14 +6,22 @@ import math.Integral;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class Application {
-
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private static final TrapezoidIntegrator TRAPEZOID_INTEGRATOR = new TrapezoidIntegrator();
-    private static final LeftRectanglesIntegrator LEFT_RECTANGLES_INTEGRATOR = new LeftRectanglesIntegrator();
-    private static final MiddleRectanglesIntegrator MIDDLE_RECTANGLES_INTEGRATOR = new MiddleRectanglesIntegrator();
-    private static final RightRectanglesIntegrator RIGHT_RECTANGLES_INTEGRATOR = new RightRectanglesIntegrator();
+
+    private static final List<Integrator> INTEGRATORS = List.of(
+        new TrapezoidIntegrator(),
+        new LeftRectanglesIntegrator(),
+        new MiddleRectanglesIntegrator(),
+        new RightRectanglesIntegrator()
+    );
+
+    public static double roundAvoid(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+    }
 
     public static void main(String[] args) {
         FunctionStorage.writeFunctionsChoice();
@@ -21,7 +29,6 @@ public class Application {
         int index = readIndex();
 
         Function function = FunctionStorage.chooseFunction(index-1);
-
 
         double a = readDouble("Write a: ");
         double b = readDouble("Write b: ");
